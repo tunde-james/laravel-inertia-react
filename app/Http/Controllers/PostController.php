@@ -13,7 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return inertia('home');
+        $posts = Post::latest()->get();
+        return inertia('home', ['posts' => $posts]);
     }
 
     /**
