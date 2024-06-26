@@ -2,7 +2,7 @@ import { Head, Link, usePage } from "@inertiajs/react";
 import { useRoute } from "../../../vendor/tightenco/ziggy";
 import { useState } from "react";
 
-export default function Home({ posts }) {
+export default function home({ posts }) {
     const route = useRoute();
     const { flash } = usePage().props;
     const { component } = usePage();
@@ -16,11 +16,17 @@ export default function Home({ posts }) {
     return (
         <>
             <Head title={component} />
-            
+
             <h1 className="title">Hello</h1>
             {flashMsg && (
                 <div className="absolute top-24 right-6 bg-rose-500 p-2 rounded-md shadow-lg text-sm text-white">
                     {flashMsg}
+                </div>
+            )}
+
+            {flash.success && (
+                <div className="absolute top-24 right-6 bg-green-500 p-2 rounded-md shadow-lg text-sm text-white">
+                    {flash.success}
                 </div>
             )}
 
